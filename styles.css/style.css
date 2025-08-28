@@ -65,6 +65,7 @@ main{
 
 @media screen and (max-width:576px) {
 
+    /* nav  */
     .body{
         width: 100%;
     }
@@ -78,11 +79,20 @@ main{
     .nav-right-container{
         margin-top: 20px;
     }
-
-   
+    .copy-btn{
+        width: 130px;
+    }
+    .coin-btn{
+        width: 130px;
+    }
+    .love-btn{
+        width: 130px;
+    }
+   /* banner */
 
     .banner-parent{
         display: block;
+        width: 100%;
     }
     .banner-title{
         display: block;
@@ -101,6 +111,32 @@ main{
     .banner-paragraph{
         margin-top: 10px;
     }
+
+
+    /* main part */
+
+    .main-section{
+       display: block;
+    }
+
+    .parent-container{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+        margin-left: 0%;
+        margin-right: 0%;
+        margin-bottom: 0%;
+        margin-top: 10%;
+    
+
+    }
+
+    .div-container{
+        width: 288px;
+        height: 350px;
+    }
+
+
 
     
 }
