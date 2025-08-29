@@ -280,7 +280,7 @@ function addToHistory(name, number) {
 
   const card = document.createElement("div");
   card.className =
-    "rounded-[8px] w-[370px] h-[100px] bg-[#f5fff6] m-[24px]";
+    "rounded-[8px] w-[250px] h-[100px] bg-[#f5fff6] m-[24px]";
 
   card.innerHTML = `
     <div class="p-[10px] flex justify-between items-center">
