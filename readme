@@ -1,36 +1,108 @@
 
-### 6. Answer the following questions clearly:
+1) var, let, আর const এর মধ্যে পার্থক্য
 
-1. What is the difference between **getElementById, getElementsByClassName, and querySelector / querySelectorAll**?
-2. How do you **create and insert a new element into the DOM**?
-3. What is **Event Bubbling** and how does it work?
-4. What is **Event Delegation** in JavaScript? Why is it useful?
-5. What is the difference between **preventDefault() and stopPropagation()** methods?
+var
 
-ans:
+Function scope এ কাজ করে।
 
-1. getElementById = returns one element , id অনুযায়ী
+একই নামের ভেরিয়েবল আবার declare করা যায়।
 
-getElementByClassName = multiple element  দেয় HTML collection অনুযায়ী
+Hoisting হয় (মানে ডিক্লেয়ারেশনের আগে ব্যবহার করা যায়, কিন্তু মান হবে undefined)।
 
-querySelector = return first element
+অনেক বাগ সৃষ্টি করে তাই এখন খুব কম ব্যবহার করা হয়।
 
-querySelectorAll = return all element 
+let
 
-2. নতুন element createElement() দিয়ে তৈরি করা হয়
+Block scope এ কাজ করে (যেমন { } এর মধ্যে আলাদা scope)।
 
-appendChild(), prepend() বা insertBefore দিয়ে insert করা যায়
+একই scope এ একই নাম দিয়ে আবার declare করা যায় না।
 
-3. event bubbling =
-Child element থেকে শুরু করে parent elements পর্যন্ত event propagate করা।
+Hoisting হয়, কিন্তু ডিক্লেয়ারেশনের আগে ব্যবহার করা যায় না (temporal dead zone error দিবে)।
 
-প্রথমে child handle হয়, তারপর parent।
+const
 
-4. Event Delegation=
-Parent element-এ listener attach করা হয়, যাতে child elements-এর events handle করা যায়।
+Block scope এ কাজ করে।
 
-Useful কারণ: অনেক child-এর জন্য আলাদা listener লাগবে না, dynamic elements handle করা যায় 
+মান একবার assign করার পর পরিবর্তন করা যায় না (immutable)।
 
-5. preventDefault() = Default browser action বন্ধ করে।
+কিন্তু যদি object বা array হয় তবে ভেতরের value পরিবর্তন করা যায়।
 
-stopPropagation() = Event bubbling/capturing বন্ধ করে, parent elements handle করবে না।
+2) map(), forEach(), আর filter() এর পার্থক্য
+
+forEach()
+
+প্রতিটি element এর জন্য একটি callback চালায়।
+
+return করে না কিছু, শুধু কাজ সম্পন্ন করে।
+
+সাধারণত data loop করে কাজ করার জন্য।
+
+map()
+
+প্রতিটি element এর উপর callback চালায়।
+
+প্রতিটি element এর result নিয়ে নতুন একটি array return করে।
+
+যখন data পরিবর্তন করে নতুন array বানাতে হয় তখন ব্যবহার করা হয়।
+
+filter()
+
+প্রতিটি element এর উপর শর্ত চেক করে।
+
+যেগুলো condition পূরণ করে শুধু সেগুলো নিয়ে নতুন একটি array return করে।
+
+3) Arrow Functions (ES6)
+
+Arrow function হলো function লেখার একটি সংক্ষিপ্ত syntax।
+
+Example:
+
+const add = (a, b) => a + b;
+
+
+বৈশিষ্ট্য:
+
+ছোট syntax, কম কোড লাগে।
+
+নিজের this bind করে না, parent scope এর this ব্যবহার করে।
+
+Constructor function হিসেবে ব্যবহার করা যায় না।
+
+4) Destructuring Assignment (ES6)
+
+Destructuring মানে হলো object বা array থেকে value আলাদা করে সহজভাবে বের করা।
+
+Example (array):
+
+const numbers = [10, 20, 30];
+const [a, b, c] = numbers; 
+// a=10, b=20, c=30
+
+
+Example (object):
+
+const user = {name: "Rahim", age: 22};
+const {name, age} = user;
+// name="Rahim", age=22
+
+5) Template Literals (ES6)
+
+Template literals মানে হলো backtick (`) ব্যবহার করে স্ট্রিং লেখা।
+
+এর ভেতরে ${} দিয়ে variable বা expression বসানো যায়।
+
+Example:
+
+const name = "Rahim";
+const age = 22;
+console.log(`My name is ${name} and I am ${age} years old.`);
+
+
+👉 পার্থক্য string concatenation এর সাথে:
+
+আগে করতে হতো:
+
+"My name is " + name + " and I am " + age + " years old.";
+
+
+Template literals এ সহজে করা যায়, সাথে multi-line string ও লেখা যায়।
